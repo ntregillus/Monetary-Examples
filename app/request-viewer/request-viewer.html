@@ -1,0 +1,16 @@
+<div>
+  <uib-accordion>
+      <uib-accordion-group is-open="true">
+        <div uib-accordion-header>
+        Request: {{method}} {{url}}
+      </div>
+        <pre>{{requestData | json | fallback: 'No payload'}}</pre>
+    </uib-accordion-group>
+    <uib-accordion-group heading="Response: {{statusCode}}">
+      <div uib-accordion-header>
+        Response: {{statusCode | fallback: ''}}
+      </div>
+      <pre ng-class="{'bg-danger': statusCode >= 400, 'bg-success': statusCode < 400}">{{responseData | json | fallback: 'Not submitted yet'}}</pre>
+    </uib-accordion-group>
+  </uib-accordion>
+</div>

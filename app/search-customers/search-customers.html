@@ -1,0 +1,74 @@
+<h3><a href="#!/home">Home</a> > Search Customers</h3>
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Filters</h4>
+    <div class="row" ng-repeat="filter in filters">
+      <div class="col-sm-2 form-group">
+        <label>Field</label>
+        <select ng-model="filter.field" class="form-control">
+          <option value="externalID">External ID</option>
+          <option value="phone">Phone Number</option>
+          <option value="email">Email</option>
+          <option value="firstName">First Name</option>
+          <option value="lastName">Last Name</option>
+        </select>
+      </div>
+      <div class="col-sm-9 form-group">
+        <label>Value</label>
+        <input ng-model="filter.value" class="form-control" type="text"></input>
+      </div>
+      <div class="col-sm-1">
+        <label>Remove</label>
+        <button ng-click="removeFilter(field)" class="btn btn-danger form-control">-</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span ng-show="filters.length == 0">No filters</span>
+        <button ng-click="addFilter()" class="btn btn-primary">+</button>
+        <button ng-click="submitSearch()" class="btn btn-success">Search</button>
+      </div>
+    </div>
+    <div class="row" ng-show="results.length > 0">
+      <div class="col-sm-12">
+      <table class="table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Points</td>
+            <th>Offers</th>
+            <th>PunchCards</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tbody>
+            <tr ng-repeat="row in results">
+              <td>{{row.CustomerID}}</td>
+              <td>{{row.FirstName}} {{row.LastName}}</td>
+              <td>{{row.Email}}</td>
+              <td>{{row.Phone}}</td>
+              <td>{{row.Points}}</td>
+              <td>
+                <button class="btn btn-success" ng-click="getOffers(row.CustomerID)">
+                  Offers
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-info" ng-click="getPunchCards(row.CustomerID)">
+                  Punch Cards
+              </td>
+            </tr>
+          </tbody>
+      </thead>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <request-viewer request-data="request" response-data="response" status-code="statusCode" method="GET" url="url">
+  </request-viewer>
+</div>

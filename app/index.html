@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="jumbotron text-center">
+  <h1>Monetary Examples</h1>
+  <p>Interactive Sample of Monetary's APIs!</p>
+  </div>
+  <div class="page-container">
+    <div class="row">
+      <div class="col-md-2">
+        <ol>
+          <li><a href="#!/register-customer">Register Customer (ENGAGE)</a></li>
+          <li><a href="#!/search-customers">Search Customers (ENGAGE)</a></li>
+          <li><a href="#!/offers">Customers Offers (ENGAGE)</a></li>
+          <li><a href="#!/purchase">Purchase (TRANSACT)</a></li>
+          <li><a href="#!/receipt">Receipt (ENGAGE)</a></li>
+        </ol>
+      </div>
+      <div class="col-md-9" ng-view>
+      </div>
+    </div>
+  </div>
+  <div>Monetary-Examples: v<span app-version></span></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="app.js"></script>
+  <!-- steps -->
+  <script src="home/home.js"></script>
+  <script src="register-customer/register-customer.js"></script>
+  <script src="search-customers/search-customers.js"></script>
+  <script src="offers/offers.js"></script>
+  <script src="purchase/purchase.js"></script>
+  <script src="receipt/receipt.js"></script>
+<!-- directives -->
+  <script src="request-viewer/request-viewer.js"></script>
+  <script src="purchase-builder/purchase-builder.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
