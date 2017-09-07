@@ -25,10 +25,10 @@ angular.module('myApp.register-customer', ['ngRoute'])
     $http({
       method:'POST',
       url: $scope.url,
+      data: $scope.request,
       headers: {
         'Authorization': 'cert_secretEW78GYG0AMTX'
       },
-      data: $scope.request
     }).then(function(response){
       $scope.response = response.data;
       $scope.statusCode = response.status;

@@ -1,10 +1,29 @@
-<h1>Purchase</h1>
+<h1>{{mode}}</h1>
 <div class="row">
   <div class="col-sm-6">
-    <purchase-builder purchase="purchase"></purchase-builder>
+    <div ng-show="mode == 'Purchase'">
+      <purchase-builder purchase="purchase"></purchase-builder>
+      <h3>Customer Lookup</h3?>
+      <customer-lookup customer-id="purchase.CustomerID" mode="'Phone'"></customer-lookup>
+      <h3 ng-show="purchase.Discounts > 0" >Discounts to Apply</h3>
+      <discount-builder customer-id="purchase.CustomerID" receipt="purchase"></discount-builder>
+      <h3>Purchase Summary</h3>
+      <receipt-viewer receipt="purchase"></receipt-viewer>
+      <h3>Credit Card Payment</h3>
+      <payment amount="purchase.Total" request="request"></payment>
+    </div>
+    <div ng-show="mode == 'Receipt'">
+      <receipt-viewer receipt="purchase"></receipt-viewer>
+    </div>
+    <div class="row">
+      <button class="btn" ng-click="submit()">Submit {{mode}}</button>
+      <button class="btn" ng-hide="purchase.Skus.length == 0 || mode == 'Receipt'" ng-click="mode = 'Receipt'">Show Receipt</button>
+      <button class="btn" ng-show="mode != 'Purchase'" ng-click="mode = 'Purchase'">Show Purchase</button>
+    </div>
   </div>
+
   <div class="col-sm-6">
-    <request-viewer request-data="purchase" response-data="response" status-code="statusCode" method="GET" url="url">
+    <request-viewer request-data="request" response-data="response" status-code="statusCode" method="method" url="url">
     </request-viewer>
   </div>
 </div>

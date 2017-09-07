@@ -3,7 +3,7 @@ app.directive('requestViewer', [function(){
     scope: {
       requestData: '=?',
       url: '=',
-      method: '@',
+      method: '=',
       //response
       statusCode: '=',
       responseData: '='
