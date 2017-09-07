@@ -44,11 +44,14 @@ angular.module('myApp.purchase', ['ngRoute'])
         var d = $scope.purchase.Discounts[i];
         subTotal += (d.Amount); //add since amount is always negative!
       }
-      $scope.purchase.SubTotal = subTotal;
-      $scope.purchase.Taxes = subTotal * 0.079;
-      $scope.purchase.Total = subTotal * 1.079;
+      $scope.purchase.SubTotal = round(subTotal);
+      $scope.purchase.Taxes = round(subTotal * 0.079);
+      $scope.purchase.Total = round(subTotal * 1.079);
 
     };
+    var round = function(num){
+      return Math.round( num * 100 + Number.EPSILON ) / 100
+    }
     $scope.$watch('purchase.Skus', function(newVal, oldVal){
       $scope.calcTotals();
     }, true);
